@@ -1,0 +1,7 @@
+FROM maven:3.6.3-jdk-11-slim
+
+COPY pom.xml /test/
+COPY sonar-project.properties /test/
+COPY src /test/src/
+
+WORKDIR /test/

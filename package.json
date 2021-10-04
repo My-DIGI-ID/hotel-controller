@@ -1,0 +1,26 @@
+{
+  "name": "hotel-controller",
+  "version": "0.0.0",
+  "description": "Description for HotelController",
+  "private": true,
+  "license": "UNLICENSED",
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
+    "generator-jhipster": "6.10.5",
+    "husky": "4.2.5",
+    "lint-staged": "8.2.1",
+    "prettier": "2.1.2"
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  },
+  "scripts": {
+    "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml}\"",
+    "build:docker:test": "docker build -f Dockerfile-PR -t hotel-controller-for-pr .",
+    "run:docker:test": "docker run hotel-controller-for-pr mvn -Pprod clean verify",
+    "test:pipeline": "npm run build:docker:test; npm run run:docker:test"
+  }
+}
